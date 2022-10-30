@@ -11,122 +11,110 @@ class Triangle {
   private readonly side1: number
   private readonly side2: number
   private readonly side3: number
-  private readonly angleA: number
-  private readonly angleB: number
-  private readonly angleC: number
-  private readonly perimeter: number
-  private readonly semiPerimeter: number
-  private readonly area: number
-  // private incircle: number
-  // private circumference: number
-  private readonly triangleType: string
-  private readonly onesquared: number
-  private readonly twosquared: number
-  private readonly threesquared: number
-  oneEighty = 180
-  degrees = this.oneEighty / 3.14
 
   constructor(length1: number, length2: number, length3: number) {
     this.side1 = length1
     this.side2 = length2
     this.side3 = length3
+  }
 
-    // perimeter calculation
-    this.perimeter = this.side1 + this.side2 + this.side3
+  // checks if triangle is valid
+  isValid(): boolean {
+    if (
+      this.side1 + this.side2 > this.side3 &&
+      this.side1 + this.side3 > this.side2 &&
+      this.side2 + this.side3 > this.side1
+    ) {
+      return true
+    }
+    return false
+  }
 
-    // semiperimeter calculation
-    this.semiPerimeter = this.perimeter / 2
+  // Getter perimeter
+  private getPerimeter(): number {
+    return this.side1 + this.side2 + this.side3
+  }
 
-    // area calculation
-    this.area = Math.sqrt(
-      this.semiPerimeter *
-        (this.semiPerimeter - this.side1) *
-        (this.semiPerimeter - this.side2) *
-        (this.semiPerimeter - this.side3)
+  // Getter semip
+  getSemiPerimeter(): number {
+    return this.getPerimeter() / 2
+  }
+
+  // Getter area
+  getArea(): number {
+    const semiP = this.getSemiPerimeter()
+    return Math.sqrt(
+      semiP * (semiP - this.side1) * (semiP - this.side2) * (semiP - this.side3)
     )
+  }
 
-    // determine triangle type
+  // type of triangle
+  getTriangleType(): string {
+    let triangleType
     if (this.side1 === this.side2 && this.side2 === this.side3) {
-      this.triangleType = 'Equilateral'
+      triangleType = 'Equilateral'
+    } else if (
+      this.side1 ** 2 + this.side2 ** 2 === this.side3 ** 2 ||
+      this.side3 ** 2 + this.side1 ** 2 === this.side2 ** 2 ||
+      this.side2 ** 2 + this.side3 ** 2 === this.side1 ** 2
+    ) {
+      triangleType = 'Right Angle'
     } else if (
       this.side1 === this.side2 &&
       this.side2 === this.side3 &&
       this.side1 === this.side3
     ) {
-      this.triangleType = 'Isoceles'
+      triangleType = 'Isoceles'
     } else {
-      this.triangleType = 'Scalene'
+      triangleType = 'Scalene'
     }
-
-    // squares all sides for angle calculation
-    this.onesquared = Math.pow(this.side1, 2)
-    this.twosquared = Math.pow(this.side2, 2)
-    this.threesquared = Math.pow(this.side3, 2)
-
-    // angelA caclulation
-    this.angleA =
-      Math.acos(
-        (this.twosquared + this.threesquared - this.onesquared) /
-          (2 * this.side2 * this.side3)
-      ) * this.degrees
-    this.angleB =
-      Math.acos(
-        (this.onesquared + this.threesquared - this.twosquared) /
-          (2 * this.side1 * this.side3)
-      ) * this.degrees
-    this.angleC =
-      Math.acos(
-        (this.onesquared + this.twosquared - this.threesquared) /
-          (2 * this.side1 * this.side2)
-      ) * this.degrees
-  }
-
-  // getters and setters
-  status(): void {
-    console.log(`
-    Perimeter: ${this.perimeter}
-    SemiPeriemter: ${this.semiPerimeter}
-    Area: ${this.area}
-    This Triangle is a ${this.triangleType}
-    Angle a: ${this.angleA}
-    Angle b: ${this.angleB}
-    Angle c: ${this.angleC}
-    `)
-  }
-
-  // Getter perimeter
-  getPerimeter(): number {
-    return this.perimeter
-  }
-
-  // Getter semip
-  getSemiperimeter(): number {
-    return this.semiPerimeter
-  }
-
-  // Getter area
-  getArea(): number {
-    return this.area
-  }
-
-  // type of triangle
-  getTriangleType(): string {
-    return this.triangleType
+    return triangleType
   }
 
   // Getter for AngleA
-  getAngleA(): number {
-    return this.angleA
+  getAngle(side: number): number {
+    let angle: number
+    const onesquared = Math.pow(this.side1, 2)
+    const twosquared = Math.pow(this.side2, 2)
+    const threesquared = Math.pow(this.side3, 2)
+    if (side === 1) {
+      angle = Math.acos(
+        (twosquared + threesquared - onesquared) / (2 * this.side2 * this.side3)
+      )
+    } else if (side === 2) {
+      angle = Math.acos(
+        (onesquared + threesquared - twosquared) / (2 * this.side1 * this.side3)
+      )
+    } else {
+      angle = Math.acos(
+        (onesquared + twosquared - threesquared) / (2 * this.side1 * this.side2)
+      )
+    }
+    return angle
   }
 
-  // Getter for AngleB
-  getAngleB(): number {
-    return this.angleB
+  // getter for heigths
+  getHeight(side: number): number {
+    let height: number
+    const area: number = this.getArea()
+    if (side === 1) {
+      height = (2 * area) / this.side1
+    } else if (side === 2) {
+      height = (2 * area) / this.side2
+    } else {
+      height = (2 * area) / this.side3
+    }
+    return height
   }
 
-  // Getter for AngleC
-  getAngleC(): number {
-    return this.angleC
+  // Getter inner circle radius
+  getinnerCircleRadius(): number {
+    return this.getArea() / this.getSemiPerimeter()
+  }
+
+  // Getter circumradius
+  getcircumRadius(): number {
+    return (this.side1 * this.side2 * this.side3) / (4 * this.getArea())
   }
 }
 
