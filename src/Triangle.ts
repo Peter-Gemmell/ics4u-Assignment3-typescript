@@ -30,7 +30,22 @@ class Triangle {
     return false
   }
 
-  // Getter perimeter
+  // getter side1
+  getSide1(): number {
+    return this.side1
+  }
+
+  // getter side2
+  getSide2(): number {
+    return this.side2
+  }
+
+  // getter side3
+  getSide3(): number {
+    return this.side3
+  }
+
+  // private perimeter method
   private getPerimeter(): number {
     return this.side1 + this.side2 + this.side3
   }

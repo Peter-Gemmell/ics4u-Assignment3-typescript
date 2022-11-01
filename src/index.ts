@@ -13,6 +13,21 @@ console.log('')
 
 const testTriangle1 = new Triangle(3, 4, 5)
 console.log('Created a 3 mm by 4 mm by 5 mm triangle.')
+console.log(
+  ' → Length of side1 of Triangle is: ' +
+    testTriangle1.getSide1().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle1.getSide2().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle1.getSide3().toFixed(4) +
+    ' mm'
+)
 console.log(' → Is the triangle valid: ' + testTriangle1.isValid().toString())
 console.log(
   ' → Semiperimeter: ' + testTriangle1.getSemiPerimeter().toFixed(4) + ' mm'
@@ -39,6 +54,21 @@ console.log('')
 
 const testTriangle2 = new Triangle(3, 3, 3)
 console.log('Created a 3 mm by 3 mm by 3 mm triangle.')
+console.log(
+  ' → Length of side1 of Triangle is: ' +
+    testTriangle2.getSide1().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle2.getSide2().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side3 of Triangle is: ' +
+    testTriangle2.getSide3().toFixed(4) +
+    ' mm'
+)
 console.log(' → Is the triangle valid: ' + testTriangle2.isValid().toString())
 console.log(
   ' → Semiperimeter: ' + testTriangle2.getSemiPerimeter().toFixed(4) + ' mm'
@@ -65,6 +95,21 @@ console.log('')
 
 const testTriangle3 = new Triangle(3, 4, 4)
 console.log('Created a 3 mm by 4 mm by 4 mm triangle.')
+console.log(
+  ' → Length of side1 of Triangle is: ' +
+    testTriangle3.getSide1().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle3.getSide2().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side3 of Triangle is: ' +
+    testTriangle3.getSide3().toFixed(4) +
+    ' mm'
+)
 console.log(' → Is the triangle valid: ' + testTriangle3.isValid().toString())
 console.log(
   ' → Semiperimeter: ' + testTriangle3.getSemiPerimeter().toFixed(4) + ' mm'
@@ -91,6 +136,21 @@ console.log('')
 
 const testTriangle4 = new Triangle(2, 3, 4)
 console.log('Created a 2 mm by 3 mm by 4 mm triangle.')
+console.log(
+  ' → Length of side1 of Triangle is: ' +
+    testTriangle4.getSide1().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle4.getSide2().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side3 of Triangle is: ' +
+    testTriangle4.getSide3().toFixed(4) +
+    ' mm'
+)
 console.log(' → Is the triangle valid: ' + testTriangle4.isValid().toString())
 console.log(
   ' → Semiperimeter: ' + testTriangle4.getSemiPerimeter().toFixed(4) + ' mm'
@@ -117,6 +177,21 @@ console.log('')
 
 const testTriangle5 = new Triangle(23, 4, 6)
 console.log('Created a 23 mm by 3 mm by 4 mm triangle.')
+console.log(
+  ' → Length of side1 of Triangle is: ' +
+    testTriangle5.getSide1().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side2 of Triangle is: ' +
+    testTriangle5.getSide2().toFixed(4) +
+    ' mm'
+)
+console.log(
+  ' → Length of side3 of Triangle is: ' +
+    testTriangle5.getSide3().toFixed(4) +
+    ' mm'
+)
 console.log(' → Is the triangle valid: ' + testTriangle5.isValid().toString())
 console.log(
   ' → Semiperimeter: ' + testTriangle5.getSemiPerimeter().toFixed(4) + ' mm'
