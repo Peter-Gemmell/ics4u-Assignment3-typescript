@@ -50,12 +50,12 @@ class Triangle {
     return this.side1 + this.side2 + this.side3
   }
 
-  // Getter semip
+  // method semip
   getSemiPerimeter(): number {
     return this.getPerimeter() / 2
   }
 
-  // Getter area
+  // method area
   getArea(): number {
     const semiP = this.getSemiPerimeter()
     return Math.sqrt(
@@ -63,7 +63,7 @@ class Triangle {
     )
   }
 
-  // type of triangle
+  // method to find type of triangle
   getTriangleType(): string {
     let triangleType
     if (this.side1 === this.side2 && this.side2 === this.side3) {
@@ -86,7 +86,7 @@ class Triangle {
     return triangleType
   }
 
-  // Getter for AngleA
+  // method for Angles
   getAngle(side: number): number {
     let angle: number
     const onesquared = Math.pow(this.side1, 2)
@@ -108,7 +108,7 @@ class Triangle {
     return angle
   }
 
-  // getter for heigths
+  // method for heigths
   getHeight(side: number): number {
     let height: number
     const area: number = this.getArea()
@@ -122,12 +122,12 @@ class Triangle {
     return height
   }
 
-  // Getter inner circle radius
+  // method inner circle radius
   getinnerCircleRadius(): number {
     return this.getArea() / this.getSemiPerimeter()
   }
 
-  // Getter circumradius
+  // method circumradius
   getcircumRadius(): number {
     return (this.side1 * this.side2 * this.side3) / (4 * this.getArea())
   }
